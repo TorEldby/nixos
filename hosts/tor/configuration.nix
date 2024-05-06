@@ -115,6 +115,7 @@
         git
 	tmux
 	openssl
+	xclip
 
 	#Chat
 	slack
