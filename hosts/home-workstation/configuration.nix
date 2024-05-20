@@ -107,13 +107,13 @@
     	
 	#Code environments
 	#vscode
-	qtcreator
+	#qtcreator
 
 	#Dev tools, such as languages or libraries
-	python3
-	cmake
-	libclang
-	ninja
+	#python3
+	#cmake
+	#libclang
+	#ninja
 
 	#Util
 	wget
@@ -121,12 +121,19 @@
 	tmux
 	openssl
 	xclip
+	htop
 
 	#Chat
 	slack
 	discord
 	telegram-desktop
   ];
+
+  # disable auto-suspend
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -135,6 +142,16 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # Steam program
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+
+    gamescopeSession.enable = true;
+
+  };
 
   # List services that you want to enable:
 
