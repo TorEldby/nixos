@@ -8,6 +8,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+#    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -18,6 +20,7 @@
         inputs.home-manager.nixosModules.default
       ];
     };
+    
     nixosConfigurations.home-workstation = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
