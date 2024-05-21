@@ -30,7 +30,12 @@
   time.timeZone = "Europe/Oslo";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    supportedLocales = [
+      "nb_NO.UTF-8/UTF-8"
+    ];
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -121,6 +126,10 @@
 	slack
 	discord
 	telegram-desktop
+
+	#3D
+	bambu-studio
+	blender
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
