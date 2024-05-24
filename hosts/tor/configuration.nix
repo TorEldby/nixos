@@ -30,12 +30,7 @@
   time.timeZone = "Europe/Oslo";
 
   # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    supportedLocales = [
-      "nb_NO.UTF-8/UTF-8"
-    ];
-  };
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -96,6 +91,9 @@
     useGlobalPkgs = true;
   };
 
+  # direnv
+  programs.direnv.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -110,10 +108,10 @@
 	qtcreator
 
 	#Dev tools, such as languages or libraries
-	python3
-	cmake
-	libclang
-	ninja
+#	python3
+#	cmake
+#	libclang
+#	ninja
 
 	#Util
 	wget
