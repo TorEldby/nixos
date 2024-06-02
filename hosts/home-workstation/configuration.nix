@@ -107,16 +107,9 @@
   environment.systemPackages = with pkgs; [
     	#Editor
 	neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    	
-	#Code environments
-	#vscode
-	#qtcreator
-
-	#Dev tools, such as languages or libraries
-	#python3
-	#cmake
-	#libclang
-	#ninja
+	
+	#Notes and writing
+	obsidian
 
 	#Util
 	wget
@@ -125,6 +118,7 @@
 	openssl
 	xclip
 	htop
+	unrar
 
 	#Chat
 	slack
