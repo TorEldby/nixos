@@ -78,7 +78,7 @@
   users.users.tor = {
     isNormalUser = true;
     description = "Tor Eldby";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
     #  thunderbird
@@ -102,16 +102,9 @@
   environment.systemPackages = with pkgs; [
     	#Editor
 	neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    	
-	#Code environments
-	#vscode
-	qtcreator
-
-	#Dev tools, such as languages or libraries
-#	python3
-#	cmake
-#	libclang
-#	ninja
+    
+	#Notes and writing
+	obsidian
 
 	#Util
 	wget
@@ -119,6 +112,7 @@
 	tmux
 	openssl
 	xclip
+	htop
 
 	#Chat
 	slack
@@ -128,6 +122,21 @@
 	#3D
 	bambu-studio
 	blender
+
+	#VSCode
+	vscodium
+#	(vscode-with-extensions.override {
+#	  vscodeExtensions = with vscode-extensions; [
+#	    ms-python.python
+#	  ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+#	      {
+#		name = "remote-ssh-edit";
+#		publisher = "ms-vscode-remote";
+#		version = "0.47.2";
+#		sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+#	      }
+#	  ];
+#	})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
