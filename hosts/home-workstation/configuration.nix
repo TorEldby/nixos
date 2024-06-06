@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ../../modules/vscode.nix
     ];
 
   # Bootloader.
@@ -89,6 +90,20 @@
     #  thunderbird
     ];
   };
+
+  vscode.user = "ascended";
+  vscode.homeDir = "/home/ascended";
+  vscode.extensions = with pkgs.vscode-extensions; [
+    bbenoist.nix
+    WakaTime.vscode-wakatime
+  ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    {
+      name = "remote-containers";
+      publisher = "ms-vscode-remote";
+      version = "0.369.0";
+      sha256 = "sha256-HoFT6T3cDoHWc2M3BzL/r7Mv1WcQ9GxpDpjDqzvoxmY=";
+    }
+  ];
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
